@@ -1,2 +1,3 @@
 owner=Luc Van Oostenryck
-desc=Sparse's development tree
+desc=C semantic parser
+homepage=https://sparse.docs.kernel.org
