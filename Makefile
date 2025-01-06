@@ -21,6 +21,8 @@ PKG_CONFIG ?= pkg-config
 
 CHECKER_FLAGS ?= -Wno-vla
 
+LLVM ?= false
+
 # Allow users to override build settings without dirtying their trees
 # For debugging, put this in local.mk:
 #
@@ -193,7 +195,11 @@ $(warning Your system does not have gtk3/gtk2, disabling test-inspect)
 endif
 
 # Can we use LLVM (needed for ... sparse-llvm)?
+ifeq (check,$(LLVM))
 LLVM_CONFIG:=llvm-config
+else
+LLVM_CONFIG:=false
+endif
 HAVE_LLVM:=$(shell $(LLVM_CONFIG) --version >/dev/null 2>&1 && echo 'yes')
 ifeq ($(HAVE_LLVM),yes)
 arch := $(shell uname -m)
