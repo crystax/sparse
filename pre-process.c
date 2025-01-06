@@ -2200,7 +2200,7 @@ static void handle_preprocessor_line(struct stream *stream, struct token **line,
 	}
 
 	if (expanding) {
-		if (!is_cond || Wpedantic)
+		if ((!is_cond || Wpedantic) && Wdirective_in_macros_argument_list)
 			warning(start->pos, "directive in macro's argument list");
 	}
 	if (!handler(stream, line, token))	/* all set */

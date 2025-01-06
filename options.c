@@ -99,6 +99,7 @@ int Wdecl = 1;
 int Wdeclarationafterstatement = -1;
 int Wdefault_bitfield_sign = 0;
 int Wdesignated_init = 1;
+int Wdirective_in_macros_argument_list = 1;
 int Wdo_while = 0;
 int Wenum_mismatch = 1;
 int Wexternal_function_has_definition = 1;
@@ -858,6 +859,7 @@ static const struct flag warnings[] = {
 	{ "declaration-after-statement", &Wdeclarationafterstatement },
 	{ "default-bitfield-sign", &Wdefault_bitfield_sign },
 	{ "designated-init", &Wdesignated_init },
+	{ "directive-in-macros-argument-list", &Wdirective_in_macros_argument_list},
 	{ "do-while", &Wdo_while },
 	{ "enum-mismatch", &Wenum_mismatch },
 	{ "external-function-has-definition", &Wexternal_function_has_definition },
