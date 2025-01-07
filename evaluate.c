@@ -946,10 +946,12 @@ static struct symbol *evaluate_binop(struct expression *expr)
 			const unsigned right_not = expr->right->type == EXPR_PREOP
 			                           && expr->right->op == '!';
 			if ((op == '&' || op == '|') && (left_not || right_not))
+				if (Wdubious) {
 				warning(expr->pos, "dubious: %sx %c %sy",
 				        left_not ? "!" : "",
 					op,
 					right_not ? "!" : "");
+				}
 
 			ltype = usual_conversions(op, expr->left, expr->right,
 						  lclass, rclass, ltype, rtype);
